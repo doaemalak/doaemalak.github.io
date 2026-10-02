@@ -71,6 +71,45 @@ filters.forEach((btn) =>
   })
 );
 
+// ---- Lecteur de démo vidéo ----
+// Pour ajouter une démo : déposer le MP4 dans assets/videos/ avec le nom indiqué
+// par data-video sur le bouton. Sans fichier, la modale affiche « Démo en préparation ».
+const modal = document.querySelector(".demo-modal");
+const video = modal.querySelector(".demo-modal__video");
+const fallback = modal.querySelector(".demo-modal__fallback");
+
+const showFallback = (show) => {
+  fallback.hidden = !show;
+  video.hidden = show;
+};
+
+video.addEventListener("error", () => showFallback(true));
+
+document.querySelectorAll(".js-demo").forEach((btn) =>
+  btn.addEventListener("click", () => {
+    const card = btn.closest(".project-card");
+    modal.querySelector(".demo-modal__title").textContent =
+      card.querySelector(".project-card__title").textContent;
+    modal.querySelector(".demo-modal__repo").href = card.querySelector(".project-card__actions a").href;
+
+    showFallback(false);
+    video.src = btn.dataset.video;
+    modal.showModal();
+    video.play().catch(() => {}); // lecture auto refusée ou fichier absent : géré par "error"
+  })
+);
+
+const closeModal = () => modal.close();
+modal.querySelector(".demo-modal__close").addEventListener("click", closeModal);
+// clic sur le fond assombri = fermeture
+modal.addEventListener("click", (e) => { if (e.target === modal) closeModal(); });
+// à la fermeture (bouton, fond ou touche Échap) : on coupe la vidéo et son téléchargement
+modal.addEventListener("close", () => {
+  video.pause();
+  video.removeAttribute("src");
+  video.load();
+});
+
 // ---- Apparition au défilement ----
 const revealObserver = new IntersectionObserver(
   (entries) =>

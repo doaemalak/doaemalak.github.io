@@ -712,7 +712,6 @@ button, input, textarea { font: inherit; color: inherit; }
   display: grid;
   place-items: center;
   overflow: hidden;
-  background-size: 22px 22px, 22px 22px, cover;
 }
 /* Miniatures : dégradés violets + grille (remplaçables par de vraies images) */
 .project-card__thumb::before {
@@ -782,6 +781,91 @@ button, input, textarea { font: inherit; color: inherit; }
 
 .project-card__actions { display: flex; gap: 10px; margin-top: auto; }
 .project-card__actions .btn { flex: 1; }
+.js-demo .icon { width: 13px; height: 13px; fill: currentColor; stroke: none; }
+
+/* ---------- 11 ter. Lecteur de démo (modale) ---------- */
+.demo-modal {
+  width: min(960px, calc(100% - 32px));
+  max-height: calc(100% - 32px);
+  margin: auto;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  overflow: visible;
+}
+.demo-modal::backdrop {
+  background: rgba(7, 3, 15, 0.82);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.demo-modal[open] { animation: modal-in 0.35s var(--ease); }
+
+.demo-modal__box {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--surface-solid);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--glow-lg);
+}
+.demo-modal__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px 14px 22px;
+  border-bottom: 1px solid var(--border);
+}
+.demo-modal__title { font-size: 1.05rem; font-weight: 600; }
+.demo-modal__close {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--border-strong);
+  background: rgba(var(--neon-rgb), 0.06);
+  color: var(--neon-bright);
+  cursor: pointer;
+  transition: background 0.25s, color 0.25s, box-shadow 0.25s;
+}
+.demo-modal__close svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.demo-modal__close:hover { background: var(--neon); color: #fff; box-shadow: var(--glow-sm); }
+
+.demo-modal__media { position: relative; aspect-ratio: 16 / 9; background: #000; }
+.demo-modal__video { display: block; width: 100%; height: 100%; }
+
+.demo-modal__fallback {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 24px;
+  text-align: center;
+  background: radial-gradient(circle at 50% 40%, rgba(var(--neon-rgb), 0.25), var(--bg) 70%);
+}
+.demo-modal__fallback[hidden] { display: none; }
+.demo-modal__fallback-icon {
+  display: grid;
+  place-items: center;
+  width: 64px; height: 64px;
+  margin-bottom: 6px;
+  border-radius: 50%;
+  font-size: 1.4rem;
+  color: var(--neon-bright);
+  border: 1.5px solid var(--border-strong);
+  box-shadow: var(--glow-sm);
+}
+.demo-modal__fallback-title { font-size: 1.25rem; font-weight: 600; }
+.demo-modal__fallback-text { max-width: 420px; color: var(--text-muted); font-size: 0.95rem; margin-bottom: 8px; }
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(16px) scale(0.98); }
+  to   { opacity: 1; transform: none; }
+}
 
 /* ---------- 11 bis. Certifications ---------- */
 .certs__list {
