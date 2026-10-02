@@ -91,6 +91,11 @@ document.querySelectorAll(".js-demo").forEach((btn) =>
     modal.querySelector(".demo-modal__title").textContent =
       card.querySelector(".project-card__title").textContent;
     modal.querySelector(".demo-modal__repo").href = card.querySelector(".project-card__actions a").href;
+    // message personnalisable par carte (ex. projet de stage dont le code n'est pas public)
+    modal.querySelector(".demo-modal__fallback-title").textContent =
+      btn.dataset.fallbackTitle || "Démo vidéo en préparation";
+    modal.querySelector(".demo-modal__fallback-text").textContent =
+      btn.dataset.fallbackText || "En attendant, le code source et la documentation sont disponibles sur GitHub.";
 
     showFallback(false);
     video.src = btn.dataset.video;
