@@ -16,6 +16,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
+  <!-- Amiri réduite aux seules lettres de « ميزان » (carte du projet Mizan) -->
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@700&text=%D9%85%D9%8A%D8%B2%D8%A7%D9%86&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -116,7 +118,7 @@
               <img src="assets/profile.svg" alt="Portrait de Doae Malak Moumen" />
             </div>
             <div class="about__badge">
-              <strong>6</strong>
+              <strong>7</strong>
               <span>projets<br />réalisés</span>
             </div>
           </div>
@@ -181,6 +183,12 @@
           <div class="journey__col">
             <h3 class="journey__title">Expérience</h3>
             <ol class="timeline">
+              <li class="timeline__item">
+                <span class="timeline__date">Juil. – Sept. 2026</span>
+                <h4 class="timeline__heading">Stage d'été IA — Mizan, assistant juridique marocain</h4>
+                <p class="timeline__place">BeeNet</p>
+                <p class="timeline__text">Assistant de questions-réponses sur le droit pénal et routier marocain, entièrement local : RAG hybride bilingue (BGE-M3, Qdrant, BM25), reranker, génération Qwen 2.5 et vérification des citations, orchestrés avec LangGraph et n8n.</p>
+              </li>
               <li class="timeline__item">
                 <span class="timeline__date">Juil. – Août 2025</span>
                 <h4 class="timeline__heading">Stage IA — Développement d'agents intelligents</h4>
@@ -375,6 +383,22 @@
         </div>
 
         <div class="projects__grid">
+          <article class="project-card" data-category="agents web">
+            <div class="project-card__thumb project-card__thumb--7">
+              <span class="project-card__tag">Stage BeeNet</span>
+              <span class="project-card__glyph project-card__glyph--ar" lang="ar">ميزان</span>
+            </div>
+            <div class="project-card__body">
+              <h3 class="project-card__title">Mizan — Assistant juridique marocain</h3>
+              <p class="project-card__text">RAG local et bilingue (français / arabe) sur le Code Pénal, le Code de Procédure Pénale et le Code de la Route : recherche hybride, reranker, porte de confiance qui refuse hors périmètre, citations vérifiées. Entrée texte, voix ou photo.</p>
+              <ul class="project-card__stack"><li>LangGraph</li><li>Qdrant</li><li>BGE-M3</li><li>Ollama</li><li>FastAPI</li><li>n8n</li></ul>
+              <div class="project-card__actions">
+                <a href="demo/mizan/" class="btn btn--small btn--primary" target="_blank" rel="noopener"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" /></svg> Démo live</a>
+                <button type="button" class="btn btn--small btn--ghost js-demo" data-video="assets/videos/mizan-assistant-juridique.mp4"><svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 4.5v15l12-7.5-12-7.5Z" /></svg> Vidéo</button>
+              </div>
+            </div>
+          </article>
+
           <article class="project-card" data-category="agents">
             <div class="project-card__thumb project-card__thumb--1">
               <span class="project-card__tag">Stage UM6P</span>

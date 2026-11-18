@@ -740,6 +740,9 @@ button, input, textarea { font: inherit; color: inherit; }
   transition: transform 0.5s var(--ease);
 }
 .project-card:hover .project-card__glyph { transform: scale(1.12) rotate(-4deg); }
+.project-card__thumb--7 { background-image: radial-gradient(circle at 65% 35%, #c084fc, #312e81 70%); }
+/* Mizan : nom en arabe (police chargée par la page de démo, repli système ici) */
+.project-card__glyph--ar { font-family: "Amiri", "Traditional Arabic", "Segoe UI", serif; font-size: 3.4rem; }
 
 .project-card__tag {
   position: absolute;

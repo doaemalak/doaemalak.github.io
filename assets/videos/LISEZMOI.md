@@ -5,6 +5,7 @@ Tant qu'un fichier est absent, la fenêtre affiche « Démo vidéo en préparati
 
 | Projet | Nom du fichier |
 |---|---|
+| Mizan — Assistant juridique marocain | `mizan-assistant-juridique.mp4` |
 | IA : Générateur d'hypothèses (RAG) | `rag-hypotheses.mp4` |
 | Mentor Clean Code (SMA) | `mentor-clean-code.mp4` |
 | Segmentation de tumeurs cérébrales | `segmentation-tumeurs.mp4` |
